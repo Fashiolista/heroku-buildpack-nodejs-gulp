@@ -84,7 +84,9 @@ fi
 
   status "Installing dependencies"
   # Make npm output to STDOUT instead of its default STDERR
-  npm install --userconfig $build_dir/.npmrc --production 2>&1 | indent
+  cd $build_dir/client
+  npm install
+  gulp build
 )
 
 # Persist goodies like node-version in the slug
